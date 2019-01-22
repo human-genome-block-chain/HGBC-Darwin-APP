@@ -75,40 +75,42 @@ export default class Application extends Component {
       <SafeAreaView style={ styles.container }>
         <AndroidWhiteBar />
         <ScrollView showsVerticalScrollIndicator={ false }>
-          <Swiper
-            height={160}  
-            dot={<View style={ styles.dot }/>}
-            activeDot={<View style={ styles.activeDot }/>}
-            paginationStyle={ styles.pagination }
-            autoplay={ true }
-            autoplayTimeout={ 2 }
-          >
-            <TouchableOpacity
-              activeOpacity={ .8 } 
-              onPress={ () => Linking.openURL('https://bihu.com/article/1789710369') }>
-              <Image
-                source={ ApplicationImg.Banner2 }
-                style={ styles.bannerImg }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={ .8 }
-              onPress={ () => this.open('https://mp.weixin.qq.com/s/3_-JneHlr_6GT6Mx4ORm-Q') } >
-              <Image
-                source={ ApplicationImg.Banner1 }
-                style={ styles.bannerImg }
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={ .8 }
-              onPress={ () => this.open('https://mp.weixin.qq.com/s/s4yLtLNj147zWh28y59xBw') }>
-              <Image
-                source={ ApplicationImg.Banner3 }
-                style={ styles.bannerImg }
-              />
-            </TouchableOpacity>
+          <View>
+            <Swiper
+              height={160}  
+              dot={<View style={ styles.dot }/>}
+              activeDot={<View style={ styles.activeDot }/>}
+              paginationStyle={ styles.pagination }
+              autoplay={ true }
+              autoplayTimeout={ 2 }
+            >
+              <TouchableOpacity
+                activeOpacity={ .8 } 
+                onPress={ () => Linking.openURL('https://bihu.com/article/1789710369') }>
+                <Image
+                  source={ ApplicationImg.Banner2 }
+                  style={ styles.bannerImg }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={ .8 }
+                onPress={ () => this.open('https://mp.weixin.qq.com/s/3_-JneHlr_6GT6Mx4ORm-Q') } >
+                <Image
+                  source={ ApplicationImg.Banner1 }
+                  style={ styles.bannerImg }
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={ .8 }
+                onPress={ () => this.open('https://mp.weixin.qq.com/s/s4yLtLNj147zWh28y59xBw') }>
+                <Image
+                  source={ ApplicationImg.Banner3 }
+                  style={ styles.bannerImg }
+                />
+              </TouchableOpacity>
+            </Swiper>
+          </View>
           
-          </Swiper>
           <View style={ styles.box2 }>
             <TouchableOpacity
               activeOpacity={ .8 }
@@ -176,7 +178,7 @@ const styles = StyleSheet.create({
     marginRight: 3
   },
   activeDot: {
-     width: 7,
+    width: 7,
     height: 7,
     borderRadius: 7,
     backgroundColor: '#31A4F4'
