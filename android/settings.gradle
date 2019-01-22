@@ -1,0 +1,36 @@
+//rootProject.name = 'App'
+//include ':app'
+//
+//include ':react-native-wechat'
+//project(':react-native-wechat').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-wechat/android')
+//
+//include ':react-native-smart-barcode'
+//project(':react-native-smart-barcode').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-smart-barcode/android')
+//
+//include ':react-native-imei'
+//project(':react-native-imei').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-imei/android')
+//
+//include ':react-native-splash-screen'
+//project(':react-native-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-splash-screen/android')
+//
+//include ':react-native-orientation', ':app'
+//project(':react-native-orientation').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-orientation/android')
+//
+//include ':ReactAndroid'
+//project(':ReactAndroid').projectDir = new File(rootProject.projectDir, '../node_modules/react-native/ReactAndroid')
+
+
+rootProject.name = 'App'
+include ':app'
+include ':react-native-smart-barcode'
+project(':react-native-smart-barcode').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-smart-barcode/android')
+include ':react-native-imei'
+project(':react-native-imei').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-imei/android')
+include ':react-native-splash-screen'
+project(':react-native-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-splash-screen/android')
+include ':react-native-orientation', ':app'
+project(':react-native-orientation').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-orientation/android')
+include ':ReactAndroid'
+project(':ReactAndroid').projectDir = new File(rootProject.projectDir, '../node_modules/react-native/ReactAndroid')
+include ':react-native-wechat'
+project(':react-native-wechat').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-wechat/android')
