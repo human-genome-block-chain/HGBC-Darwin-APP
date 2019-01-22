@@ -49,7 +49,7 @@ export default class ApplyPage extends Component {
     console.log(this.state.list)
 
     return (
-      <SafeAreaView style={ styles.ApplyPage }>
+      <SafeAreaView style={ styles.applyPage }>
         <AndroidWhiteBar />
         <ScrollView showsVerticalScrollIndicator={ false }>
           {
@@ -92,9 +92,8 @@ export default class ApplyPage extends Component {
 }
 
 const styles = StyleSheet.create({
-  ApplyPage: {
+  applyPage: {
     flex: 1,
-    padding: 20,
     backgroundColor: '#fff'
   },
   textInfo: {
@@ -109,6 +108,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: .5,
     borderStyle: 'solid',
     borderBottomColor: '#eee',
+    paddingLeft: 10,
+    paddingRight: 10
   },
   content: {
     flex: 1,
