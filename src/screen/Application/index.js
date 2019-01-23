@@ -27,13 +27,13 @@ export default class Application extends Component {
 
     this.state = {
       list: [],
-      tab: true,
+      tab: 'tab1',
       filter: ''
     }
   }
 
   componentDidMount () {
-    this._getStoreList ('inlife')
+    this._getStoreList ('newest')
   }
 
   async _getStoreList (filter) {
@@ -55,12 +55,17 @@ export default class Application extends Component {
   tabChoose (tab) {
     if (tab === 'tab1') {
       this.setState({
-        tab: true
+        tab: 'tab1'
+      })
+      this._getStoreList ('newest')
+    } else if (tab === 'tab2') {
+      this.setState({
+        tab: 'tab2'
       })
       this._getStoreList ('inlife')
     } else {
       this.setState({
-        tab: false
+        tab: 'tab3'
       })
       this._getStoreList('indisease')
     }
@@ -148,8 +153,9 @@ export default class Application extends Component {
           </View>
           <View style={ styles.box3 }>
             <View style={ styles.tabBox }>
-              <TouchableOpacity style={ [styles.tab, this.state.tab ? styles.choose : ''] } onPress={ () => this.tabChoose('tab1') } activeOpacity={ .8 }><Text style={ styles.tabText }>生活类</Text></TouchableOpacity>
-              <TouchableOpacity style={ [styles.tab, this.state.tab ? '' : styles.choose] } onPress={ () => this.tabChoose('tab2') } activeOpacity={ .8 }><Text style={ styles.tabText }>健康类</Text></TouchableOpacity>
+              <TouchableOpacity style={ [styles.tab, this.state.tab === 'tab1' ? styles.choose : ''] } onPress={ () => this.tabChoose('tab1') } activeOpacity={ .8 }><Text style={ styles.tabText }>最新</Text></TouchableOpacity>
+              <TouchableOpacity style={ [styles.tab, this.state.tab === 'tab2' ? styles.choose : ''] } onPress={ () => this.tabChoose('tab2') } activeOpacity={ .8 }><Text style={ styles.tabText }>生活</Text></TouchableOpacity>
+              <TouchableOpacity style={ [styles.tab, this.state.tab === 'tab3' ? styles.choose : ''] } onPress={ () => this.tabChoose('tab3') } activeOpacity={ .8 }><Text style={ styles.tabText }>健康</Text></TouchableOpacity>
             </View>
               <View>
                 { this._mapApplyList () }
