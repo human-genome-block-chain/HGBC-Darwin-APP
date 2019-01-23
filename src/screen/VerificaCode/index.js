@@ -11,7 +11,7 @@ import {
   AppropriateInput,
   GradientButton,
   KeyboardSpacer,
-  VerificationCode
+  VoiceCode
 } from 'components/index'
 
 import { setToastMsg, setUserInfo } from 'actions/index'
@@ -94,8 +94,9 @@ class VerificaCode extends Component {
                 onChangeText={ val => this.changeInput('code', val) }
                 triggerSubmit={ this.validation.bind(this) }
               />
-              <VerificationCode
+              <VoiceCode
                 phone={ this.props.phone }
+                type={'verify'}
               />
           </View>
           <View style={ styles.buttonBox }>
