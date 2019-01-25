@@ -102,7 +102,7 @@ class Dig extends Component {
           activeOpacity={ .8 }
           onPress={ () => this.props.navigation.navigate('Redbag') }
         >
-          <Image style={ styles.redbagImg } source={RedbagImg.RedbagBtn}/>
+          <Image source={RedbagImg.RedbagBtn}/>
         </TouchableOpacity>
         <View style={ styles.content } onLayout={({ nativeEvent })=> this.containerSize(nativeEvent)}>
           {
@@ -142,10 +142,9 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   redbag: {
-    width: 10
-  },
-  redbagImg: {
-    height: 50
+    position: 'absolute',
+    right: 10,
+    width: 40
   },
   content: {
     flex: 1,
