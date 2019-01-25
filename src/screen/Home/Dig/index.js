@@ -4,7 +4,9 @@ import {
   View,
   Text,
   AppState,
-  StyleSheet
+  StyleSheet,
+  Image,
+  TouchableOpacity
 } from 'react-native'
 
 import { setCells, setEmpty } from 'actions/index'
@@ -12,6 +14,8 @@ import { setCells, setEmpty } from 'actions/index'
 import { getReward } from 'api/index'
 import Floating from './Floating/index'
 import Amount from './Amount/index'
+
+import { RedbagImg } from 'images/index.js'
 
 class Dig extends Component {
   constructor () {
@@ -93,7 +97,13 @@ class Dig extends Component {
     return (
       <View style={ [styles.container, this.props.style] }>
         <Text style={ styles.title }>达尔文星球</Text>
-        <Text style={ styles.hongbao } onPress={ () => this.props.navigation.navigate('Redbag') }>红包</Text>
+        <TouchableOpacity
+          style={ styles.redbag }
+          activeOpacity={ .8 }
+          onPress={ () => this.props.navigation.navigate('Redbag') }
+        >
+          <Image style={ styles.redbagImg } source={RedbagImg.RedbagBtn}/>
+        </TouchableOpacity>
         <View style={ styles.content } onLayout={({ nativeEvent })=> this.containerSize(nativeEvent)}>
           {
             isPresent ? 
@@ -131,8 +141,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center'
   },
-  hongbao: {
-    color: '#fff'
+  redbag: {
+    width: 10
+  },
+  redbagImg: {
+    height: 50
   },
   content: {
     flex: 1,
