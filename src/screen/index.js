@@ -96,5 +96,7 @@ module.exports = {
   // 位点信息
   get ApplySiteList () { return require('./ApplyDetail/ApplySiteList/index').default },
   // 报告
-  get Report () { return require('./ApplyDetail/Report/index').default }
+  get Report () { return require('./ApplyDetail/Report/index').default },
+  // 红包
+  get Redbag () { return require('./Redbag/index').default  }
 }

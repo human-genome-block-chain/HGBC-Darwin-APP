@@ -18,6 +18,8 @@ import * as Assets from './Assets/index'
 import * as WithdraWal from './WithdraWal/index'
 // 应用
 import * as ApplicationImg from './Application/index'
+// 红包
+import * as RedbagImg from './RedbagImg/index'
 
 export {
 	CommonImg,
@@ -29,5 +31,6 @@ export {
 	TaskImg,
 	Assets,
 	WithdraWal,
-	ApplicationImg
+	ApplicationImg,
+	RedbagImg
 }

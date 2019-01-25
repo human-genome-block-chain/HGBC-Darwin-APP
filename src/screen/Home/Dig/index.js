@@ -93,6 +93,7 @@ class Dig extends Component {
     return (
       <View style={ [styles.container, this.props.style] }>
         <Text style={ styles.title }>达尔文星球</Text>
+        <Text style={ styles.hongbao } onPress={ () => this.props.navigation.navigate('Redbag') }>红包</Text>
         <View style={ styles.content } onLayout={({ nativeEvent })=> this.containerSize(nativeEvent)}>
           {
             isPresent ? 
@@ -129,6 +130,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#fff',
     textAlign: 'center'
+  },
+  hongbao: {
+    color: '#fff'
   },
   content: {
     flex: 1,

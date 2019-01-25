@@ -17,22 +17,22 @@ class Amount extends Component {
     return (
       <View style={ styles.footer }>
         <GraphicButton
-            source={ HomeImg.Token }
-            triggerClick={ () => this.props.navigation.navigate('Integral') }
-          >
-            <Ticker textStyle={styles.text} rotateTime={200}>
-              { token.toFixed(2) }
-            </Ticker>
-          </GraphicButton>
-          <GraphicButton
-            style={ styles.amountRight }
-            source={ HomeImg.Calculate }
-            triggerClick={ () => this.props.navigation.navigate('CalculateForce') }
-          >
-            <Ticker textStyle={styles.text} rotateTime={200}>
-              { power.toString() }
-            </Ticker>
-          </GraphicButton>
+          source={ HomeImg.Token }
+          triggerClick={ () => this.props.navigation.navigate('Integral') }
+        >
+          <Ticker textStyle={styles.text} rotateTime={200}>
+            { token.toFixed(2) }
+          </Ticker>
+        </GraphicButton>
+        <GraphicButton
+          style={ styles.amountRight }
+          source={ HomeImg.Calculate }
+          triggerClick={ () => this.props.navigation.navigate('CalculateForce') }
+        >
+          <Ticker textStyle={styles.text} rotateTime={200}>
+            { power.toString() }
+          </Ticker>
+        </GraphicButton>
       </View>
     )
   }

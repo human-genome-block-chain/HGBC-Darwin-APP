@@ -14,3 +14,5 @@ export * from './application/index'
 export * from './messages/index'
 // 基本信息部分接口
 export * from './BasicInformation/index'
+// 红包
+export * from './redbag/index'

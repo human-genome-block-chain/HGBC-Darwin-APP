@@ -50,7 +50,8 @@ import {
   ApplyDetail,
   ApplyPage,
   ApplySiteList,
-  Report
+  Report,
+  Redbag
 } from 'screen/index'
 
 import {
@@ -410,6 +411,12 @@ const RootRouter = {
     screen: Report,
     navigationOptions:() => ({
       title: '报告'
+    })
+  },
+  Redbag: {
+    screen: Redbag,
+    navigationOptions:() => ({
+      title: '碱基拼手气红包'
     })
   }
 }
