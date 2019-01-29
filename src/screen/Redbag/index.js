@@ -42,9 +42,10 @@ class Redbag extends Component {
   }
 
   show () {
-    if (this.state.amount === 0) {
+    this.state.tradePass = ''
+    if (this.state.amount === 0 || this.state.amount > 10000) {
       this.props.setToastMsg('请输入正确的金额')
-    } else if (this.state.number === 0) {
+    } else if (this.state.number === 0 || this.state.number > 100) {
       this.props.setToastMsg('请输入正确的红包个数')
     } else {
       this.setState({
@@ -85,7 +86,7 @@ class Redbag extends Component {
 
   async getShareImage () {
     try {
-      const result = await getShareImage({pageName:'redpacket',pageUrl:this.url})
+      const result = await getShareImage({pageName:'redpacket',pageUrl:this.state.pageUrl})
       this.shareImageURL = result.data.imgUrl
       Animated.timing(this.state.offsetY, {duration: 100,toValue: 0}).start();
     } catch (e) {}
@@ -296,11 +297,13 @@ const styles = StyleSheet.create({
     color: '#333'
   },
   input: {
+    width: 130,
     padding: 0,
     position: 'absolute',
     right: 40
   },
   input2: {
+    width: 130,
     padding: 0,
     position: 'absolute',
     right: 25
@@ -367,6 +370,7 @@ const styles = StyleSheet.create({
   },
   popUpInput: {
     paddingBottom: 5,
+    paddingLeft: 0,
     borderBottomWidth: 0.3,
     borderColor:'#EFEFEF',
   },
