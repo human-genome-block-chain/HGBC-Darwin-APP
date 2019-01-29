@@ -1,7 +1,7 @@
 import * as Types from 'actions/actionsTypes'
 
 const initialState = {
-	version: '10',
+	version: '11',
 	imei: '',
 	token: '',
 	phone: '',
