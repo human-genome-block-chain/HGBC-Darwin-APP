@@ -292,7 +292,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#333'
   },
   input: {
     padding: 0,
@@ -307,7 +308,8 @@ const styles = StyleSheet.create({
   info: {
     position: 'absolute',
     right: 0,
-    fontSize: 14
+    fontSize: 14,
+    color: '#333'
   },
   lastToken: {
     color: '#9B9B9B',
