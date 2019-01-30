@@ -199,28 +199,30 @@ class Redbag extends Component {
             <KeyboardSpacer>
               <View style={ styles.popUp }>
               <KeyboardAvoidingView style={ styles.popUp2 }  behavior={platformDiff.isAndroid ? null : 'position'}>
-                <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
-                <View style={ styles.popUpBox }>
-                  <AppropriateInput
-                    style={ styles.popUpInput }
-                    placeholder={ '请输入交易密码' }
-                    onChangeText={ val => this.setState({ tradePass: val }) }
-                    returnKeyType="send"
-                    maxLength={ 18 }
-                    secureTextEntry={ true }
-                    placeholderTextColor="#4A4A4A"
-                    triggerClick={ () => this._submit() }
-                  />
-                  <View style={ styles.popUpInfo }>
-                    <Text style={ styles.popUpInfoMessgae1 }>还没设置？</Text>
-                    <Text style={ styles.popUpInfoMessgae2 } onPress={ () => navigation.navigate(isSetTradePass ? 'ToReset' : 'Trading') }>去设置</Text>
+                <View style={ [styles.popUp3] }>
+                  <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
+                  <View style={ styles.popUpBox }>
+                    <AppropriateInput
+                      style={ styles.popUpInput }
+                      placeholder={ '请输入交易密码' }
+                      onChangeText={ val => this.setState({ tradePass: val }) }
+                      returnKeyType="send"
+                      maxLength={ 18 }
+                      secureTextEntry={ true }
+                      placeholderTextColor="#4A4A4A"
+                      triggerClick={ () => this._submit() }
+                    />
+                    <View style={ styles.popUpInfo }>
+                      <Text style={ styles.popUpInfoMessgae1 }>还没设置？</Text>
+                      <Text style={ styles.popUpInfoMessgae2 } onPress={ () => navigation.navigate(isSetTradePass ? 'ToReset' : 'Trading') }>去设置</Text>
+                    </View>
+                    <ImageBackground
+                      style={ styles.popBtn }
+                      source={ RedbagImg.Btn }
+                    >
+                      <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
+                    </ImageBackground>
                   </View>
-                  <ImageBackground
-                    style={ styles.popBtn }
-                    source={ RedbagImg.Btn }
-                  >
-                    <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
-                  </ImageBackground>
                 </View>
               </KeyboardAvoidingView>
               </View>
@@ -384,6 +386,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+    backgroundColor: '#fff'
+  },
+   popUp3: {
     backgroundColor: '#fff',
     height: 170,
     paddingRight: 20,
