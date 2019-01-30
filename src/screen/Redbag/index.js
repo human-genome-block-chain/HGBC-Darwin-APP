@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
   container: {
     paddingLeft: 30,
     paddingRight: 30,
-    paddingTop: 30,
+    paddingTop: 30
   },
   box: {
     backgroundColor: '#fff',
@@ -371,6 +371,9 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginTop: 10,
     textAlign: 'center'
+  },
+  popUp: {
+    flex: 1
   },
   popUp2: {
     position: 'absolute',
