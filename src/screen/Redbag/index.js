@@ -375,7 +375,11 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   popUp: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#fff',
+    height: 170,
+    paddingRight: 20,
+    paddingTop: 20
   },
   popUp2: {
     position: 'absolute',
