@@ -13,8 +13,11 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
-  Modal
+  Modal,
+  KeyboardAvoidingView
 } from 'react-native'
+
+import platformDiff from 'util/platformDiff'
 
 import { RedbagImg, CommonImg } from 'images/index.js'
 
@@ -195,6 +198,7 @@ class Redbag extends Component {
           >
             <KeyboardSpacer>
               <View style={ styles.popUp }>
+              <KeyboardAvoidingView  behavior={platformDiff.isAndroid ? null : 'position'}>
                 <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
                 <View style={ styles.popUpBox }>
                   <AppropriateInput
@@ -218,6 +222,7 @@ class Redbag extends Component {
                     <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
                   </ImageBackground>
                 </View>
+              </KeyboardAvoidingView>
               </View>
             </KeyboardSpacer>
           </Modal>
