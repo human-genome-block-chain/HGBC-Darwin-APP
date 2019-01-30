@@ -47,8 +47,12 @@ class Redbag extends Component {
     this.state.tradePass = ''
     if (this.state.amount === 0 || this.state.amount > 10000) {
       this.props.setToastMsg('请输入正确的金额')
+    } else if (this.state.amount%1 !== 0) {
+      this.props.setToastMsg('碱基数量必须为整数')
     } else if (this.state.number === 0 || this.state.number > 100) {
       this.props.setToastMsg('请输入正确的红包个数')
+    } else if (this.state.number%1 !== 0) {
+      this.props.setToastMsg('红包个数必须为整数')
     } else {
       this.setState({
         PopUp: true,
@@ -183,33 +187,31 @@ class Redbag extends Component {
 
           {
             this.state.PopUp ? 
-            <KeyboardSpacer>
-              <View style={ styles.popUp }>
-                <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
-                <View style={ styles.popUpBox }>
-                  <AppropriateInput
-                    style={ styles.popUpInput }
-                    placeholder={ '请输入交易密码' }
-                    onChangeText={ val => this.setState({ tradePass: val }) }
-                    returnKeyType="send"
-                    maxLength={ 18 }
-                    secureTextEntry={ true }
-                    placeholderTextColor="#4A4A4A"
-                    triggerClick={ () => this._submit() }
-                  />
-                  <View style={ styles.popUpInfo }>
-                    <Text style={ styles.popUpInfoMessgae1 }>还没设置？</Text>
-                    <Text style={ styles.popUpInfoMessgae2 } onPress={ () => navigation.navigate(isSetTradePass ? 'ToReset' : 'Trading') }>去设置</Text>
-                  </View>
-                  <ImageBackground
-                    style={ styles.popBtn }
-                    source={ RedbagImg.Btn }
-                  >
-                    <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
-                  </ImageBackground>
+            <View style={ styles.popUp }>
+              <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
+              <View style={ styles.popUpBox }>
+                <AppropriateInput
+                  style={ styles.popUpInput }
+                  placeholder={ '请输入交易密码' }
+                  onChangeText={ val => this.setState({ tradePass: val }) }
+                  returnKeyType="send"
+                  maxLength={ 18 }
+                  secureTextEntry={ true }
+                  placeholderTextColor="#4A4A4A"
+                  triggerClick={ () => this._submit() }
+                />
+                <View style={ styles.popUpInfo }>
+                  <Text style={ styles.popUpInfoMessgae1 }>还没设置？</Text>
+                  <Text style={ styles.popUpInfoMessgae2 } onPress={ () => navigation.navigate(isSetTradePass ? 'ToReset' : 'Trading') }>去设置</Text>
                 </View>
-              </View> 
-            </KeyboardSpacer> : null
+                <ImageBackground
+                  style={ styles.popBtn }
+                  source={ RedbagImg.Btn }
+                >
+                  <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
+                </ImageBackground>
+              </View>
+            </View>  : null
           }
 
           {
