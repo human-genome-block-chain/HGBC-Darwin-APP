@@ -191,35 +191,37 @@ class Redbag extends Component {
 
           {
             this.state.PopUp ?
-            <KeyboardSpacer>
-              <KeyboardAvoidingView style={ styles.popUp2 }  behavior={platformDiff.isAndroid ? null : 'position'}>
-                <View style={ [styles.popUp3] }>
-                  <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
-                  <View style={ styles.popUpBox }>
-                    <AppropriateInput
-                      style={ styles.popUpInput }
-                      placeholder={ '请输入交易密码' }
-                      onChangeText={ val => this.setState({ tradePass: val }) }
-                      returnKeyType="send"
-                      maxLength={ 18 }
-                      secureTextEntry={ true }
-                      placeholderTextColor="#4A4A4A"
-                      triggerClick={ () => this._submit() }
-                    />
-                    <View style={ styles.popUpInfo }>
-                      <Text style={ styles.popUpInfoMessgae1 }>还没设置？</Text>
-                      <Text style={ styles.popUpInfoMessgae2 } onPress={ () => navigation.navigate(isSetTradePass ? 'ToReset' : 'Trading') }>去设置</Text>
+            <View style={ styles.popUp } >
+              <KeyboardSpacer>
+                <KeyboardAvoidingView style={ styles.popUp2 }  behavior={platformDiff.isAndroid ? null : 'position'}>
+                  <View style={ [styles.popUp3] }>
+                    <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
+                    <View style={ styles.popUpBox }>
+                      <AppropriateInput
+                        style={ styles.popUpInput }
+                        placeholder={ '请输入交易密码' }
+                        onChangeText={ val => this.setState({ tradePass: val }) }
+                        returnKeyType="send"
+                        maxLength={ 18 }
+                        secureTextEntry={ true }
+                        placeholderTextColor="#4A4A4A"
+                        triggerClick={ () => this._submit() }
+                      />
+                      <View style={ styles.popUpInfo }>
+                        <Text style={ styles.popUpInfoMessgae1 }>还没设置？</Text>
+                        <Text style={ styles.popUpInfoMessgae2 } onPress={ () => navigation.navigate(isSetTradePass ? 'ToReset' : 'Trading') }>去设置</Text>
+                      </View>
+                      <ImageBackground
+                        style={ styles.popBtn }
+                        source={ RedbagImg.Btn }
+                      >
+                        <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
+                      </ImageBackground>
                     </View>
-                    <ImageBackground
-                      style={ styles.popBtn }
-                      source={ RedbagImg.Btn }
-                    >
-                      <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
-                    </ImageBackground>
                   </View>
-                </View>
-              </KeyboardAvoidingView>
-            </KeyboardSpacer> : null
+                </KeyboardAvoidingView>
+              </KeyboardSpacer> 
+            </View> : null
           }
             
 
