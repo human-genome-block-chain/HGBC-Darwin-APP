@@ -13,7 +13,6 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
-  Modal,
   KeyboardAvoidingView
 } from 'react-native'
 
@@ -190,14 +189,9 @@ class Redbag extends Component {
             </View>
           </ScrollView>
 
-          <Modal
-            visible={ this.state.PopUp }
-            transparent={ true }
-            onRequestClose={() => {}}
-            animationType="fade"
-          >
+          {
+            this.state.PopUp ?
             <KeyboardSpacer>
-              <View style={ styles.popUp }>
               <KeyboardAvoidingView style={ styles.popUp2 }  behavior={platformDiff.isAndroid ? null : 'position'}>
                 <View style={ [styles.popUp3] }>
                   <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
@@ -225,9 +219,9 @@ class Redbag extends Component {
                   </View>
                 </View>
               </KeyboardAvoidingView>
-              </View>
-            </KeyboardSpacer>
-          </Modal>
+            </KeyboardSpacer> : null
+          }
+            
 
           {
             this.state.shareShow ?
@@ -377,9 +371,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginTop: 10,
     textAlign: 'center'
-  },
-  popUp: {
-    flex: 1
   },
   popUp2: {
     position: 'absolute',
