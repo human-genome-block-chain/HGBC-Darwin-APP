@@ -10,7 +10,9 @@ import {
   DeviceEventEmitter,
   WebView,
   Dimensions,
-  Image
+  Image,
+  SafeAreaView,
+  ScrollView
 } from 'react-native'
 
 import { RedbagImg, CommonImg } from 'images/index.js'
@@ -113,147 +115,149 @@ class Redbag extends Component {
     const { navigation, isSetTradePass, token } = this.props
 
     return (
-      <View style={ styles.redbag }>
+      <SafeAreaView style={ styles.redbag }>
         <ImageBackground
-        style={ styles.backgroundImage }
-        source={ RedbagImg.Background }
-        style={{width: '100%', height: '100%'}}
-      >
-        <View style={ styles.container }>
-          <View style={ styles.box }>
-            <View style={ styles.list }>
-              <Text stye={ styles.title }>总金额</Text>
-              <TextInput
-                style={ styles.input }
-                placeholder={ '500～10000' }
-                keyboardType='numeric'
-                returnKeyType="next"
-                maxLength={ 5 }
-                underlineColorAndroid="transparent"
-                editable={ this.state.editable }
-                onChangeText={ val => this.setState({ amount: val }) }
-              />
-              <Text style={ styles.info }>碱基</Text>
-            </View>
-            <Text style={ styles.lastToken }>余额：{ token.toFixed(2) } 碱基</Text>
-            <View style={ styles.list }>
-              <Text stye={ styles.title }>红包个数</Text>
-              <TextInput
-                style={ styles.input2 }
-                placeholder={ '1～100' }
-                keyboardType='numeric'
-                returnKeyType="next"
-                maxLength={ 3 }
-                underlineColorAndroid="transparent"
-                editable={ this.state.editable }
-                onChangeText={ val => this.setState({ number: val }) }
-              />
-              <Text style={ styles.info }>个</Text>
-            </View>
-            <View style={ styles.list }>
-              <TextInput
-                style={ styles.input3 }
-                placeholder={ '大吉大利' }
-                editable={ this.state.editable }
-                returnKeyType="next"
-                underlineColorAndroid="transparent"
-                onChangeText={ val => this.setState({ mark: val }) }
-              />
-            </View>
-            <TouchableOpacity
-              style={ styles.btnBox }
-              activeOpacity={ .8 }
-              onPress={ ()=> this.show() }
-            >
-              <ImageBackground
-                style={ styles.btn }
-                source={ RedbagImg.Btn }
-                >
-                  <Text style={ styles.btnText }>包个红包</Text>
-                </ImageBackground>
-            </TouchableOpacity>
-            <Text style={ styles.infoMessage }>未被领取的红包，24小时后退回</Text>
-          </View>
-        </View>
-
-        {
-          this.state.PopUp ? 
-          <KeyboardSpacer>
-            <View style={ styles.popUp }>
-              <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
-              <View style={ styles.popUpBox }>
-                <AppropriateInput
-                  style={ styles.popUpInput }
-                  placeholder={ '请输入交易密码' }
-                  onChangeText={ val => this.setState({ tradePass: val }) }
-                  returnKeyType="send"
-                  maxLength={ 18 }
-                  secureTextEntry={ true }
-                  placeholderTextColor="#4A4A4A"
-                  triggerClick={ () => this._submit() }
-                />
-                <View style={ styles.popUpInfo }>
-                  <Text style={ styles.popUpInfoMessgae1 }>还没设置？</Text>
-                  <Text style={ styles.popUpInfoMessgae2 } onPress={ () => navigation.navigate(isSetTradePass ? 'ToReset' : 'Trading') }>去设置</Text>
+          style={ styles.backgroundImage }
+          source={ RedbagImg.Background }
+          style={{width: '100%', height: '100%'}}
+        >
+          <ScrollView>
+            <View style={ styles.container }>
+              <View style={ styles.box }>
+                <View style={ styles.list }>
+                  <Text stye={ styles.title }>总金额</Text>
+                  <TextInput
+                    style={ styles.input }
+                    placeholder={ '500～10000' }
+                    keyboardType='numeric'
+                    returnKeyType="next"
+                    maxLength={ 5 }
+                    underlineColorAndroid="transparent"
+                    editable={ this.state.editable }
+                    onChangeText={ val => this.setState({ amount: val }) }
+                  />
+                  <Text style={ styles.info }>碱基</Text>
                 </View>
-                <ImageBackground
-                  style={ styles.popBtn }
-                  source={ RedbagImg.Btn }
+                <Text style={ styles.lastToken }>余额：{ token.toFixed(2) } 碱基</Text>
+                <View style={ styles.list }>
+                  <Text stye={ styles.title }>红包个数</Text>
+                  <TextInput
+                    style={ styles.input2 }
+                    placeholder={ '1～100' }
+                    keyboardType='numeric'
+                    returnKeyType="next"
+                    maxLength={ 3 }
+                    underlineColorAndroid="transparent"
+                    editable={ this.state.editable }
+                    onChangeText={ val => this.setState({ number: val }) }
+                  />
+                  <Text style={ styles.info }>个</Text>
+                </View>
+                <View style={ styles.list }>
+                  <TextInput
+                    style={ styles.input3 }
+                    placeholder={ '大吉大利' }
+                    editable={ this.state.editable }
+                    returnKeyType="next"
+                    underlineColorAndroid="transparent"
+                    onChangeText={ val => this.setState({ mark: val }) }
+                  />
+                </View>
+                <TouchableOpacity
+                  style={ styles.btnBox }
+                  activeOpacity={ .8 }
+                  onPress={ ()=> this.show() }
                 >
-                  <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
-                </ImageBackground>
+                  <ImageBackground
+                    style={ styles.btn }
+                    source={ RedbagImg.Btn }
+                    >
+                      <Text style={ styles.btnText }>包个红包</Text>
+                    </ImageBackground>
+                </TouchableOpacity>
+                <Text style={ styles.infoMessage }>未被领取的红包，24小时后退回</Text>
               </View>
-            </View> 
-          </KeyboardSpacer> : null
-        }
-
-        {
-          this.state.shareShow ?
-          <View style={{flex:1}}>
-            <WebView
-              source={{uri: this.url}}
-              bounces={ true }
-              domStorageEnabled={ true }
-              scalesPageToFit={ true }
-            />
-            <Animated.View style={{transform: [{translateY: this.state.offsetY}],backgroundColor:'rgba(52,52,52,0.5)',position: "absolute",bottom:0,left:0}}>
-              <TouchableOpacity style={{width:width,height:height,alignItems:'flex-end',justifyContent:'flex-end'}} activeOpacity={1.0} onPress={()=>{
-                this.shareCancel()
-              }}>
-                <View style={{backgroundColor:'#fff',width:width,height:160,alignSelf:'flex-end',flexDirection:'row'}}>
-                  <TouchableOpacity style={{flex:1,justifyContent:'center'}} activeOpacity={0.8} onPress={()=>{
-                    wechat.shareToSession({
-                      type: 'imageUrl',
-                      mediaTagName: undefined,
-                      messageAction: undefined,
-                      messageExt: undefined,
-                      imageUrl: this.shareImageURL
-                    });
-                    this.shareCancel()
-                  }}>
-                    <Image source={CommonImg.WeiXinLogo} style={{width:50,height:50,alignSelf:'center'}}/>
-                    <Text style={{fontSize:16,color:'#333333',alignSelf:'center',marginTop:15}}>微信好友</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={{flex:1,justifyContent:'center'}} activeOpacity={0.8} onPress={()=>{
-                    wechat.shareToTimeline({
-                      type: 'imageUrl',
-                      mediaTagName: undefined,
-                      messageAction: undefined,
-                      messageExt: undefined,
-                      imageUrl: this.shareImageURL
-                    });
-                    this.shareCancel()
-                  }}>
-                    <Image source={CommonImg.PyqLogo} style={{width:64,height:64,alignSelf:'center'}}/>
-                    <Text style={{fontSize:16,color:'#333333',alignSelf:'center',marginTop:15}}>微信朋友圈</Text>
-                  </TouchableOpacity>
+            </View>
+          </ScrollView>
+          
+          {
+            this.state.PopUp ? 
+            <KeyboardSpacer>
+              <View style={ styles.popUp }>
+                <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
+                <View style={ styles.popUpBox }>
+                  <AppropriateInput
+                    style={ styles.popUpInput }
+                    placeholder={ '请输入交易密码' }
+                    onChangeText={ val => this.setState({ tradePass: val }) }
+                    returnKeyType="send"
+                    maxLength={ 18 }
+                    secureTextEntry={ true }
+                    placeholderTextColor="#4A4A4A"
+                    triggerClick={ () => this._submit() }
+                  />
+                  <View style={ styles.popUpInfo }>
+                    <Text style={ styles.popUpInfoMessgae1 }>还没设置？</Text>
+                    <Text style={ styles.popUpInfoMessgae2 } onPress={ () => navigation.navigate(isSetTradePass ? 'ToReset' : 'Trading') }>去设置</Text>
+                  </View>
+                  <ImageBackground
+                    style={ styles.popBtn }
+                    source={ RedbagImg.Btn }
+                  >
+                    <Text style={ styles.popBtnText } onPress={ () => this._submit() }>确定</Text>
+                  </ImageBackground>
                 </View>
-              </TouchableOpacity>
-            </Animated.View>
-          </View> : null
-        }
-      </ImageBackground>
-      </View>
+              </View> 
+            </KeyboardSpacer> : null
+          }
+
+          {
+            this.state.shareShow ?
+            <View style={{flex:1}}>
+              <WebView
+                source={{uri: this.url}}
+                bounces={ true }
+                domStorageEnabled={ true }
+                scalesPageToFit={ true }
+              />
+              <Animated.View style={{transform: [{translateY: this.state.offsetY}],backgroundColor:'rgba(52,52,52,0.5)',position: "absolute",bottom:0,left:0}}>
+                <TouchableOpacity style={{width:width,height:height,alignItems:'flex-end',justifyContent:'flex-end'}} activeOpacity={1.0} onPress={()=>{
+                  this.shareCancel()
+                }}>
+                  <View style={{backgroundColor:'#fff',width:width,height:160,alignSelf:'flex-end',flexDirection:'row'}}>
+                    <TouchableOpacity style={{flex:1,justifyContent:'center'}} activeOpacity={0.8} onPress={()=>{
+                      wechat.shareToSession({
+                        type: 'imageUrl',
+                        mediaTagName: undefined,
+                        messageAction: undefined,
+                        messageExt: undefined,
+                        imageUrl: this.shareImageURL
+                      });
+                      this.shareCancel()
+                    }}>
+                      <Image source={CommonImg.WeiXinLogo} style={{width:50,height:50,alignSelf:'center'}}/>
+                      <Text style={{fontSize:16,color:'#333333',alignSelf:'center',marginTop:15}}>微信好友</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flex:1,justifyContent:'center'}} activeOpacity={0.8} onPress={()=>{
+                      wechat.shareToTimeline({
+                        type: 'imageUrl',
+                        mediaTagName: undefined,
+                        messageAction: undefined,
+                        messageExt: undefined,
+                        imageUrl: this.shareImageURL
+                      });
+                      this.shareCancel()
+                    }}>
+                      <Image source={CommonImg.PyqLogo} style={{width:64,height:64,alignSelf:'center'}}/>
+                      <Text style={{fontSize:16,color:'#333333',alignSelf:'center',marginTop:15}}>微信朋友圈</Text>
+                    </TouchableOpacity>
+                  </View>
+                </TouchableOpacity>
+              </Animated.View>
+            </View> : null
+          }
+        </ImageBackground>
+      </SafeAreaView>
       
     )
   }
