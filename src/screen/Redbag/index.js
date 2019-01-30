@@ -45,11 +45,11 @@ class Redbag extends Component {
 
   show () {
     this.state.tradePass = ''
-    if (this.state.amount === 0 || this.state.amount > 10000) {
+    if (this.state.amount > 10000 || this.state.amount < 500) {
       this.props.setToastMsg('请输入正确的金额')
     } else if (this.state.amount%1 !== 0) {
       this.props.setToastMsg('碱基数量必须为整数')
-    } else if (this.state.number === 0 || this.state.number > 100) {
+    } else if (this.state.number < 1 || this.state.number > 100) {
       this.props.setToastMsg('请输入正确的红包个数')
     } else if (this.state.number%1 !== 0) {
       this.props.setToastMsg('红包个数必须为整数')
