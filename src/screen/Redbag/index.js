@@ -12,7 +12,8 @@ import {
   Dimensions,
   Image,
   SafeAreaView,
-  ScrollView
+  ScrollView,
+  Modal
 } from 'react-native'
 
 import { RedbagImg, CommonImg } from 'images/index.js'
@@ -186,8 +187,12 @@ class Redbag extends Component {
             </View>
           </ScrollView>
 
-          {
-            this.state.PopUp ? 
+          <Modal
+            visible={ this.state.PopUp }
+            transparent={ true }
+            onRequestClose={() => {}}
+            animationType="fade"
+          >
             <KeyboardSpacer>
               <View style={ styles.popUp }>
                 <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
@@ -214,8 +219,8 @@ class Redbag extends Component {
                   </ImageBackground>
                 </View>
               </View>
-            </KeyboardSpacer> : null
-          }
+            </KeyboardSpacer>
+          </Modal>
 
           {
             this.state.shareShow ?
