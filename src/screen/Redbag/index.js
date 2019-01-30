@@ -194,7 +194,7 @@ class Redbag extends Component {
             <View style={ styles.popUp } >
               <KeyboardSpacer>
                 <KeyboardAvoidingView style={ styles.popUp2 }  behavior={platformDiff.isAndroid ? null : 'position'}>
-                  <View style={ [styles.popUp3] }>
+                  <View style={ styles.popUp3 }>
                     <Text style={ styles.popClose } onPress={ ()=> this.cancel() }>取消</Text>
                     <View style={ styles.popUpBox }>
                       <AppropriateInput
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
   box: {
     backgroundColor: '#fff',
     width: 310,
-    height: 380,
+    height: 400,
     borderRadius: 20,
     padding: 40
   },
@@ -378,8 +378,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     height: 170,
-    paddingRight: 20,
-    paddingTop: 20
   },
   popUp2: {
     position: 'absolute',
