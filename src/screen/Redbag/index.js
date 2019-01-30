@@ -176,10 +176,11 @@ class Redbag extends Component {
                     </ImageBackground>
                 </TouchableOpacity>
                 <Text style={ styles.infoMessage }>未被领取的红包，24小时后退回</Text>
+                <Text style={ styles.infoMessage2 }>红包记录可在碱基收支明细中查询</Text>
               </View>
             </View>
           </ScrollView>
-          
+
           {
             this.state.PopUp ? 
             <KeyboardSpacer>
@@ -353,6 +354,12 @@ const styles = StyleSheet.create({
     color: '#9B9B9B',
     fontSize: 10,
     marginTop: 25,
+    textAlign: 'center'
+  },
+  infoMessage2: {
+    color: '#9B9B9B',
+    fontSize: 10,
+    marginTop: 10,
     textAlign: 'center'
   },
   popUp: {
