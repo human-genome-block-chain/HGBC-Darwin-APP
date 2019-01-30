@@ -80,7 +80,8 @@ class Redbag extends Component {
         this.setState({
           pageUrl: result.data,
           PopUp: false,
-          shareShow: true
+          shareShow: true,
+          editable: true
         })
 
         this.props.deleteToken(parseFloat(this.state.amount || 0))
