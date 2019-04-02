@@ -5,12 +5,12 @@ import {
   Image,
   StyleSheet
 } from 'react-native'
+import { connect } from 'react-redux'
 
 import { AndroidWhiteBar, TaskSuccessButton } from 'components/index'
 import { TaskImg } from 'images/index'
 
-
-export default class Success extends Component{
+class Success extends Component{
   render () {
     return (
       <View style={ styles.container }>
@@ -24,6 +24,7 @@ export default class Success extends Component{
             <Text style={ styles.success }>绑定成功</Text>
             <Text style={ styles.title }>唾液采集器编号</Text>
             <Text style={ styles.scode }>{ this.props.text }</Text>
+            <Text style={ styles.title }>已增加{ this.props.add_power }算力</Text>
           </View>
         </View>
         <TaskSuccessButton />
@@ -31,6 +32,8 @@ export default class Success extends Component{
     )
   }
 }
+
+export default connect(state => ({ ...state.home }))(Success)
 
 const styles = StyleSheet.create({
   container: {
@@ -76,7 +79,8 @@ const styles = StyleSheet.create({
   },
   scode: {
     fontSize: 20,
-    color: '#40B1FF'
+    color: '#40B1FF',
+    marginBottom: 20
   },
   title: {
     fontSize: 16,

@@ -34,7 +34,7 @@ class Task extends Component {
   }
 
   render () {
-    const { WGS, daily_bonus, invite, strategy } = this.props
+    const { WGS, daily_bonus, invite, strategy, baseinfo } = this.props
 
     return (
       <View style={ [ styles.main, this.props.style ] }>
@@ -66,8 +66,8 @@ class Task extends Component {
           <TaskItems
             style={ styles.taskList }
             source={ TaskImg.Wgs }
-            title="全基因组数据"
-            buttonText="+150算力"
+            title="基因组数据"
+            buttonText="+15~150算力"
             status={ WGS.simpleCount > 0 ? 'success' : 'disabled' }
             triggerClick={ () => this.props.navigation.navigate('Wgs') }
           ></TaskItems>
@@ -79,7 +79,17 @@ class Task extends Component {
             status={ invite.inviteCount >= 10 ? 'success' : 'disabled' }
             triggerClick={ () => this.props.navigation.navigate('Invitation', { type: 1, title: '邀请好友' }) }
           ></TaskItems>
-          <TaskItems
+          <TaskItems 
+            style={ styles.taskList }
+            source={ TaskImg.BasicInformation }
+            title="基础信息"
+            status={ baseinfo.is_finish <= 0 ? 'success' : 'disabled' }
+            buttonText="+3算力"
+            triggerClick={ () => this.props.navigation.navigate('BasicInformation') }
+          >
+            <Text style={ styles.instructions }>奖励 3算力</Text>
+          </TaskItems>
+          {/* <TaskItems
             style={ styles.taskList }
             source={ TaskImg.Strategy }
             title="星球攻略"
@@ -87,7 +97,7 @@ class Task extends Component {
             buttonText="+1算力"
             triggerClick={ () => this.props.navigation.navigate('Strategy') }
           >
-          </TaskItems>
+          </TaskItems> */}
         </View>
       </View>
     )

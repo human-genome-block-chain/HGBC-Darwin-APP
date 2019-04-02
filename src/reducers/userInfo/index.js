@@ -5,6 +5,7 @@ const initialState = {
 	imei: '',
 	token: '',
 	phone: '',
+	time: 0,
 	phone_encrypt: '',
 	is_bandWallet: 0,
 	is_setTradePass: 0

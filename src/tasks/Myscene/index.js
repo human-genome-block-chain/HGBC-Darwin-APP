@@ -38,10 +38,10 @@ export default class Myscene extends Component{
                 style={ styles.hander }
                 location="center" 
               >
-                全基因组数据是人体所有基因信息的总和，其蕴藏着非常大的价值，是探索自我、健康生活的必备数据。
+                基因是人体的基因组成单位，基因数据蕴藏着非常大的价值，对基因数据的解读是探索自我、健康生活的必要途径。
               </Text>
               <View style={ styles.contomter}>
-                  <Text style={ styles.conterde }>全基因组数据获取路径</Text>
+                  <Text style={ styles.conterde }>基因组数据获取路径</Text>
                   <View style={ styles.stepsBox }>
                     <Steps 
                       content="使用唾液采集器采集唾液"
@@ -56,14 +56,14 @@ export default class Myscene extends Component{
                       steps="3"
                     />
                     <Steps 
-                      content="产出全基因组数据"
+                      content="产出基因组数据"
                       steps="4"
                       isLine={ false }
                     />
                   </View>
               </View>
               <View style={ styles.graphicBox }>
-                <Text style={ styles.conterde }>全基因组数据应用场景</Text>
+                <Text style={ styles.conterde }>基因组数据应用场景</Text>
                 <Text style={ styles.colorder }>遗传体质分析</Text>
                 <Image
                   style={ styles.image }

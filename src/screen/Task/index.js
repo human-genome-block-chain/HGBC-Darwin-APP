@@ -89,7 +89,7 @@ class Task extends Component {
               >
                 <Text style={ styles.instructions }>已邀请{ invite.inviteCount }/10人</Text>
               </TaskItems>
-              <TaskItems
+              {/* <TaskItems
                 style={ styles.taskList }
                 source={ TaskImg.Strategy }
                 title="星球攻略"
@@ -98,7 +98,7 @@ class Task extends Component {
                 triggerClick={ () => this.props.navigation.navigate('Strategy') }
               >
                 <Text style={ styles.instructions }>阅读攻略奖励 1算力</Text>
-              </TaskItems>
+              </TaskItems> */}
               <TaskItems
                 style={ styles.taskList }
                 source={ TaskImg.Promote }
@@ -136,14 +136,14 @@ class Task extends Component {
               <TaskItems
                 style={ styles.taskList }
                 source={ TaskImg.Wgs }
-                title="全基因组数据"
-                buttonText="+150算力"
+                title="基因组数据"
+                buttonText="+15~150算力"
                 status={ WGS.simpleCount > 0 ? 'success' : 'disabled' }
                 triggerClick={ () => this.props.navigation.navigate('Wgs') }
               >
-                <Text style={ styles.instructions }>奖励 150算力</Text>
+                <Text style={ styles.instructions }>奖励 15~150算力</Text>
               </TaskItems>
-              <TaskItems
+              {/* <TaskItems
                 style={ styles.taskList }
                 source={ TaskImg.Wes }
                 title="全外显子组数据"
@@ -152,7 +152,7 @@ class Task extends Component {
                 triggerClick={ () => this.props.navigation.navigate('Wes') }
               >
                 <Text style={ styles.instructions }>奖励 30算力</Text>
-              </TaskItems>
+              </TaskItems> */}
               <TaskItems
                 style={ styles.taskList }
                 source={ TaskImg.Medical }

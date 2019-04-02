@@ -12,6 +12,69 @@ import { BackgroundPicture } from 'components/index'
 import { IntegralImg } from 'images/index'
 
 class Operation extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0
+    }
+  }
+
+  componentDidMount () {
+    this._startTimer()
+  }
+
+  componentWillUnmount() {
+    this.interval && clearInterval(this.interval);
+  }
+
+  _startTimer () {
+    this.interval && clearInterval(this.interval)
+
+    this.interval = setInterval(() => {
+      // 获取当前时间戳
+      const nowTime = new Date().getTime() / 1000
+      // 获取某个时间格式的时间戳
+      const otherTime = this.props.available_time
+      
+      if (parseFloat(nowTime) >= parseFloat(otherTime)) {
+
+        this.interval && clearInterval(this.interval)
+
+        this.setState({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0
+        })
+      } else {
+        const date3 = otherTime - nowTime;
+
+        // 天 
+        const day = Math.floor(date3 / (24 * 3600));
+        // 时
+        const leave1 = date3 % (24 * 3600);
+        const hour = Math.floor(leave1 / (3600));
+        // 分
+        const leave2 = leave1 % (3600);
+        const minute = Math.floor(leave2 / (60));
+        // 秒
+        const leave3 = leave2 % (60);
+        const second = Math.round(leave3);
+
+        this.setState({
+          days: day,
+          hours: hour,
+          minutes: minute,
+          seconds: second
+        })
+      }
+    }, 1000)
+  }
+
   render () {
     return (
       <View style={ styles.container }>
@@ -39,6 +102,12 @@ class Operation extends Component {
               <Text style={ styles.assetsNumber }>{ this.props.token_count.toFixed(4) }</Text>
               <Text style={ styles.assetsHgbc }>碱基</Text>
             </View>
+            {
+              this.props.available_time === 0 ? '' :
+              <Text style={ styles.time } onPress={ () => this.props.navigation.navigate('TimeDetail') }>
+                { this.state.days }天{ this.state.hours }时{ this.state.minutes }分{ this.state.seconds }秒 后销毁
+              </Text>
+            }
           </View>
             <TouchableOpacity
               onPress={ () => this.props.withdrawal() }
@@ -131,5 +200,12 @@ const styles = StyleSheet.create({
   walletImage: {
     width: 15,
     height: 14
+  },
+  time: {
+    fontSize: 18,
+    color: '#e43937',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginTop: 5
   }
 })

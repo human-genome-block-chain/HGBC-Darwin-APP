@@ -60,6 +60,13 @@ export default class WGSInfoDetail extends Component {
           </JumpList>
           <JumpList 
             style={ styles.content }
+            title="数据类型"
+            isArrow={ false }
+          >
+            <Text style={ styles.rightText }>{ list.samtype }</Text>
+          </JumpList>
+          <JumpList 
+            style={ styles.content }
             title="数据大小"
             isArrow={ false }
           >

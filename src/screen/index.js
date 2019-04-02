@@ -98,5 +98,7 @@ module.exports = {
   // 报告
   get Report () { return require('./ApplyDetail/Report/index').default },
   // 红包
-  get Redbag () { return require('./Redbag/index').default  }
+  get Redbag () { return require('./Redbag/index').default  },
+  // 红包
+  get TimeDetail () { return require('./Integral/TimeDetail/index').default  }
 }

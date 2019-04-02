@@ -151,7 +151,7 @@ export default class AssetsPage extends Component {
         {wgsinfo.isfinish ?
           <View style={ styles.wgsinfoBox }>
             <View style={ styles.wgsinfoHeader }>
-              <Text style={ styles.title }>全基因组数据</Text>
+              <Text style={ styles.title }>基因组数据</Text>
               <TouchableOpacity
                 style={ styles.wgsinfoHeaderRight }
                 activeOpacity={ .8 }
@@ -180,7 +180,7 @@ export default class AssetsPage extends Component {
 
           <View style={ styles.wgsinfoBox }>
             <View style={ styles.wgsinfoHeader }>
-              <Text style={ styles.title }>全基因组数据</Text>
+              <Text style={ styles.title }>基因组数据</Text>
               <TouchableOpacity
                 style={ styles.wgsinfoHeaderRight }
                 activeOpacity={ .8 }
@@ -202,7 +202,7 @@ export default class AssetsPage extends Component {
           </View>
         }
 
-        {wesinfo.isfinish ?
+        {/* {wesinfo.isfinish ?
           <View style={ styles.wesinfoBox }>
             <View style={ styles.wesinfoHeader }>
               <Text style={ styles.title }>全外显子组数据</Text>
@@ -254,7 +254,7 @@ export default class AssetsPage extends Component {
             </View>
             <Text style={styles.wesinfoHeaderMainText}>无数据</Text>
           </View>
-        }
+        } */}
       </ScrollView>
     )
   }

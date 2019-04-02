@@ -41,13 +41,13 @@ export default class Options extends Component{
                 navigation.navigate('Myscene')
               } }
             >基因组数据</Text>
-            <Text
+            {/* <Text
               style={ styles.optionsText }
               onPress={ () => {
                 close()
                 navigation.navigate('Incentive')
               } }
-            >测序奖励</Text>
+            >测序奖励</Text> */}
           </View>
         </View>
       </TouchableWithoutFeedback> : null

@@ -40,7 +40,8 @@ class Amount extends Component {
 
 export default connect(state => ({
   power: state.home.power_count,
-  token: state.home.token_count
+  token: state.home.token_count,
+  time: state.home.available_time
 }))(Amount)
 
 const styles = StyleSheet.create({

@@ -51,7 +51,7 @@ class Footers extends Component{
           location="center"
           triggerClick={ () => this.linking() }
         >
-          JD抢购全基因组数据采集套件
+          没有？赏口唾液...
         </TextButton>
       </View> : null
     )

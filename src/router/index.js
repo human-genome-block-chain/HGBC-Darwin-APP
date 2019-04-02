@@ -7,6 +7,7 @@ import MainTab from './MainTab/index'
 import {
   Task,
   Integral,
+  TimeDetail,
   CalculateForce,
   PaymentDetails,
   Assets,
@@ -191,6 +192,12 @@ const RootRouter = {
       title: 'HGBC碱基'
     })
   },
+  TimeDetail: {
+    screen: TimeDetail,
+    navigationOptions:() => ({
+      title: '碱基销毁说明'
+    })
+  },
   Wgs: {
     screen: Wgs,
     navigationOptions:() => ({
@@ -212,7 +219,7 @@ const RootRouter = {
   Myscene: {
     screen: Myscene,
     navigationOptions:() => ({
-      title: '全基因组数据'
+      title: '基因组数据'
     })
   },
   CalculateForce: {
@@ -233,10 +240,10 @@ const RootRouter = {
       title: '我的基础信息'
     })
   },
-  WGSInfoDetail: { // 全基因组数据
+  WGSInfoDetail: { // 基因组数据
     screen: WGSInfoDetail,
     navigationOptions:() => ({
-      title: '全基因组数据'
+      title: '基因组数据'
     })
   },
   WESInfoDetail: { // 全外显子组数据
@@ -245,10 +252,10 @@ const RootRouter = {
       title: '全外显子组数据'
     })
   },
-  WGSIncluded: { // 全基因组数据
+  WGSIncluded: { // 基因组数据
     screen: WGSIncluded,
     navigationOptions:() => ({
-      title: '全基因组数据'
+      title: '基因组数据'
     })
   },
   WESIncluded: { // 全外显子组数据

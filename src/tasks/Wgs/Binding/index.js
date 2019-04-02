@@ -115,6 +115,7 @@ export default connect(null, dispatch => ({
   setTasks: data => dispatch(setTasks(data)),
   setToken: num => dispatch(setToken(num)),
   setPower: num => dispatch(setPower(num)),
+  setAdd: num => dispatch(setPower(num)),
   setToastMsg: msg => dispatch(setToastMsg(msg))
 }))(Binding)
 

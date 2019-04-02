@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   disableText: {
-    fontSize: 13,
+    fontSize: 11,
     color: '#97A2AD'
   },
   successBotton: {

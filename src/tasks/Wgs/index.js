@@ -61,7 +61,7 @@ class Wgs extends Component{
       <SafeAreaView style={ styles.container }>
         <AndroidWhiteBar />
         <Headers
-          title={ isWgs ? isBind ? '确认绑定' : '全基因组数据' : '绑定结果' }
+          title={ isWgs ? isBind ? '确认绑定' : '基因组数据' : '绑定结果' }
           isWgs={ isWgs }
           prompt={ this.prompt.bind(this) }
           navigation={ navigation }
