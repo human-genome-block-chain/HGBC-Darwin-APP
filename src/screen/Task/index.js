@@ -61,7 +61,7 @@ class Task extends Component {
             <Banner />
           </View>
           <View style={ styles.content }>
-            <Text style={ styles.title }>固定任务</Text>
+            <Text style={ styles.title }>星球攻略</Text>
             <View style={ styles.taskBox }>
               {
                 /*

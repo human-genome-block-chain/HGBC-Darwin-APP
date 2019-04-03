@@ -24,7 +24,7 @@ class Success extends Component{
             <Text style={ styles.success }>绑定成功</Text>
             <Text style={ styles.title }>唾液采集器编号</Text>
             <Text style={ styles.scode }>{ this.props.text }</Text>
-            <Text style={ styles.title }>已增加{ this.props.add_power }算力</Text>
+            <Text style={ styles.title }>已增加{ this.props.add_power }算力</Text> 
           </View>
         </View>
         <TaskSuccessButton />
@@ -33,7 +33,9 @@ class Success extends Component{
   }
 }
 
-export default connect(state => ({ ...state.home }))(Success)
+export default connect(state => ({
+  add_power: state.home.add_power
+}))(Success)
 
 const styles = StyleSheet.create({
   container: {

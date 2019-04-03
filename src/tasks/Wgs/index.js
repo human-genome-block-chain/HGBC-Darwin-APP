@@ -83,7 +83,7 @@ class Wgs extends Component{
               <SwiperTab />
             </View>
           </View> : 
-          <Success text={ scode }/>
+          <Success text={ scode } navigation={this.props.navigation}/>
         }
         <Footers 
           isWgs={ isWgs }

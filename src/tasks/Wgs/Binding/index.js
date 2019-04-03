@@ -13,7 +13,7 @@ import platformDiff from 'util/platformDiff'
 
 import { getInvitationQrCode, boundSample } from 'api/index'
 
-import { setTasks, setPower, setToastMsg, setToken } from 'actions/index'
+import { setTasks, setPower, setToastMsg, setToken, setAddpower } from 'actions/index'
 
 class Binding extends Component{
   constructor(props) {
@@ -28,7 +28,7 @@ class Binding extends Component{
   }
   
   async binding () {
-    const { callback, code, setTasks, setToken, setPower, setToastMsg } = this.props
+    const { callback, code, setTasks, setToken, setPower, setToastMsg, setAddpower } = this.props
     
     this.setState({ isClick: false })
 
@@ -37,6 +37,7 @@ class Binding extends Component{
 
       setPower(result.data.power)
       setToken(result.data.token)
+      setAddpower(result.data.power)
 
       setToastMsg('绑定成功')
 
@@ -115,7 +116,7 @@ export default connect(null, dispatch => ({
   setTasks: data => dispatch(setTasks(data)),
   setToken: num => dispatch(setToken(num)),
   setPower: num => dispatch(setPower(num)),
-  setAdd: num => dispatch(setPower(num)),
+  setAddpower: num => dispatch(setAddpower(num)),
   setToastMsg: msg => dispatch(setToastMsg(msg))
 }))(Binding)
 
