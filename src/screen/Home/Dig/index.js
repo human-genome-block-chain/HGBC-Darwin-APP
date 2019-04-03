@@ -97,13 +97,13 @@ class Dig extends Component {
     return (
       <View style={ [styles.container, this.props.style] }>
         <Text style={ styles.title }>达尔文星球</Text>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={ styles.redbag }
           activeOpacity={ .8 }
           onPress={ () => this.props.navigation.navigate('Redbag') }
         >
           <Image style={ styles.redbagImg } resizeMode="contain" source={RedbagImg.RedbagBtn}/>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <View style={ styles.content } onLayout={({ nativeEvent })=> this.containerSize(nativeEvent)}>
           {
             isPresent ? 

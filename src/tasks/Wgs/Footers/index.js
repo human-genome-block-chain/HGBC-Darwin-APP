@@ -30,7 +30,7 @@ class Footers extends Component{
   }
 
   linking () {
-    Linking.openURL('https://item.jd.com/27693892128.html')
+    Linking.openURL('https://h5.youzan.com/v2/showcase/homepage?alias=i58fd2xq')
   }
 
   render () {

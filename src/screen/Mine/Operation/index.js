@@ -4,7 +4,8 @@ import {
   View,
   ViewPropTypes,
   StyleSheet,
-  Text
+  Text,
+  Linking
 } from 'react-native'
 
 import { JumpList } from 'components/index'
@@ -16,6 +17,10 @@ export default class Operation extends Component {
 
   jumpFn (address) {
     this.props.navigation.navigate(address)
+  }
+
+  linking () {
+    Linking.openURL('https://h5.youzan.com/v2/showcase/homepage?alias=i58fd2xq')
   }
 
   render () {
@@ -41,6 +46,10 @@ export default class Operation extends Component {
           <JumpList 
             title="认识星球"
             triggerClick={ () => this.jumpFn('Know') }
+          />
+          <JumpList 
+            title="基因商城"
+            triggerClick={ () => this.linking() }
           />
           <JumpList 
             title="账户设置"
