@@ -25,6 +25,8 @@ export const SET_EMPTY = 'SET_EMPTY'
 export const SET_DATA = 'SET_DATA'
 // 设置算力
 export const SET_POWER = 'SET_POWER'
+// 设置增加算力
+export const SET_ADDPOWER = 'SET_ADDPOWER'
 // 设置token
 export const SET_TOKEN = 'SET_TOKEN'
 // 设置tasks

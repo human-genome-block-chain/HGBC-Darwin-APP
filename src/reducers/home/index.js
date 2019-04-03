@@ -17,8 +17,8 @@ export default home = (state = initialState, action) => {
 			return { ...state, token_count: (state.token_count + action.token) }
 		case Types.DELETE_TOKEN:
 			return { ...state, token_count: (state.token_count - action.token) }
-		case Types.SET_ADD:
-			return { ...state, add_power: action.power }
+		case Types.SET_ADDPOWER:
+			return { ...state, add_power: action.addPower }
 		default:
 			return state
 	}

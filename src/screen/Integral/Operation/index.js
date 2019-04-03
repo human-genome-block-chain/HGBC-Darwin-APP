@@ -103,7 +103,7 @@ class Operation extends Component {
               <Text style={ styles.assetsHgbc }>碱基</Text>
             </View>
             {
-              this.props.available_time === 0 ? '' :
+              this.props.available_time === 0 ? <View></View> :
               <Text style={ styles.time } onPress={ () => this.props.navigation.navigate('TimeDetail') }>
                 { this.state.days }天{ this.state.hours }时{ this.state.minutes }分{ this.state.seconds }秒 后销毁
               </Text>
