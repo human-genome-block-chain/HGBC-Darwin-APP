@@ -104,9 +104,9 @@ android {
     defaultConfig {
         applicationId "com.hgbc.HGBCAPP"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 24
         versionCode 1
-        versionName "1.4.2"
+        versionName "1.5.1"
         ndk {
            abiFilters "armeabi","x86"
         }
