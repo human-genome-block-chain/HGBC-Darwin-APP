@@ -98,7 +98,7 @@ class Settings extends Component {
             title="版本"
             isArrow={ false }
           >
-            <Text style={ styles.rightText }>1.5</Text>
+            <Text style={ styles.rightText }>1.5.1</Text>
           </JumpList>
 
         </View>

@@ -19,10 +19,10 @@ let timeOutTimer = null
 // const SERVER_BASE = 'http://47.106.124.146:8081/mobile'
 
 // 线上地址https
-// const SERVER_BASE = 'https://app.hgbc.io:443/mobile'
+const SERVER_BASE = 'https://app.hgbc.io:443/mobile'
 
 // 开发地址
-const SERVER_BASE = 'http://192.168.1.116:8080/mobile'
+// const SERVER_BASE = 'http://192.168.1.116:8080/mobile'
 
 // 嘉琪开发地址
 // const SERVER_BASE = 'http://192.168.1.118:8080/mobile'
