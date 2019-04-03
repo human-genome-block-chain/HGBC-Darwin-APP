@@ -3,14 +3,19 @@ import {
   View,
   Text,
   Image,
-  StyleSheet
+  StyleSheet,
+  Linking
 } from 'react-native'
 import { connect } from 'react-redux'
 
-import { AndroidWhiteBar, TaskSuccessButton } from 'components/index'
+import { AndroidWhiteBar, TaskSuccessButton, TextButton } from 'components/index'
 import { TaskImg } from 'images/index'
 
 class Success extends Component{
+  linking () {
+    Linking.openURL('https://h5.youzan.com/v2/showcase/homepage?alias=i58fd2xq')
+  }
+
   render () {
     return (
       <View style={ styles.container }>
@@ -24,8 +29,15 @@ class Success extends Component{
             <Text style={ styles.success }>绑定成功</Text>
             <Text style={ styles.title }>唾液采集器编号</Text>
             <Text style={ styles.scode }>{ this.props.text }</Text>
-            <Text style={ styles.title }>已增加{ this.props.add_power }算力</Text> 
+            <Text style={ styles.title }>已增加{ this.props.add_power }算力</Text>
           </View>
+          <TextButton
+            textStyle={ styles.conbter }
+            location="center"
+            triggerClick={ () => this.linking() }
+          >
+            想要更多？上基因商城看看
+          </TextButton>
         </View>
         <TaskSuccessButton />
       </View>
@@ -88,5 +100,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#474B5C',
     marginBottom: 10
+  },
+  conbter:{
+    fontSize: 16,
+    color:'#40B1FF',
+    marginTop: 30
   }
 })
