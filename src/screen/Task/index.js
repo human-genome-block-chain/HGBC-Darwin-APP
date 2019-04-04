@@ -53,7 +53,7 @@ class Task extends Component {
     return (
       <SafeAreaView style={ styles.mainBox }>
         <AndroidWhiteBar />
-        <ScrollView 
+        <ScrollView
           style={ styles.container }
           showsVerticalScrollIndicator={ false }
         >
@@ -108,7 +108,7 @@ class Task extends Component {
               >
                 <Text style={ styles.instructions }>已邀请 { popularize.inviteBoundCount }人</Text>
               </TaskItems>
-              <TaskItems 
+              <TaskItems
                 style={ styles.taskList }
                 source={ TaskImg.Activation }
                 title="激活邀请码"
@@ -123,7 +123,7 @@ class Task extends Component {
           <View style={ styles.content }>
             <Text style={ styles.title }>数据盒子</Text>
             <View style={ styles.taskBox }>
-              <TaskItems 
+              <TaskItems
                 style={ styles.taskList }
                 source={ TaskImg.BasicInformation }
                 title="基础信息"
@@ -138,7 +138,7 @@ class Task extends Component {
                 source={ TaskImg.Wgs }
                 title="基因组数据"
                 buttonText="+15~150算力"
-                status={ simpleCount > 0 ? 'success' : 'disabled' }
+                status={ WGS.simpleCount > 0 ? 'success' : 'disabled' }
                 triggerClick={ () => this.props.navigation.navigate('Wgs') }
               >
                 <Text style={ styles.instructions }>奖励 15~150算力</Text>

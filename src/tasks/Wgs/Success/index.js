@@ -22,7 +22,7 @@ export default class Success extends Component{
         <AndroidWhiteBar />
         <View style={ styles.main }>
           <View style={ styles.imageBox }>
-            <Image 
+            <Image
               source={ TaskImg.Success }
               resizeMode="cover"
             />
@@ -32,11 +32,12 @@ export default class Success extends Component{
             <Text style={ styles.title }>已增加{ this.props.power }算力</Text>
           </View>
           <TextButton
-            textStyle={ styles.conbter }
+            textStyle={ styles.baseInfoTextButton }
             location="center"
             triggerClick={ () => this.linking() }
           >
-            想要更多？上基因商城看看
+            想要更多？
+            上基因商城看看-->
           </TextButton>
         </View>
         <TaskSuccessButton />
@@ -101,5 +102,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color:'#40B1FF',
     marginTop: 30
+  },
+  baseInfoTextButton: {
+    fontSize: 16,
+    color:'#40B1FF',
+    borderWidth: .3,
+    borderColor: '#4A90E2',
+    borderRadius: 10,
+    paddingTop: 5,
+    paddingRight: 20,
+    paddingBottom: 5,
+    paddingLeft: 20
   }
 })
