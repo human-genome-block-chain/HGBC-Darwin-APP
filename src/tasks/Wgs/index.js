@@ -53,7 +53,7 @@ class Wgs extends Component{
   }
 
   render() {
-    const { simpleCount, scode, navigation } = this.props
+    const { simpleCount, scode, power, navigation } = this.props
     const { isShow, isBind, code } = this.state
     const isWgs = simpleCount <= 0
 
@@ -83,7 +83,7 @@ class Wgs extends Component{
               <SwiperTab />
             </View>
           </View> : 
-          <Success text={ scode } navigation={this.props.navigation}/>
+          <Success text={ scode } power={ power } navigation={this.props.navigation}/>
         }
         <Footers 
           isWgs={ isWgs }

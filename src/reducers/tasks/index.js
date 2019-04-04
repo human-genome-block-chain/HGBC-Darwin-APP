@@ -3,7 +3,8 @@ import * as Types from 'actions/actionsTypes'
 const initialState = {
   WGS: { 
     scode: '',
-    simpleCount: 0
+    simpleCount: 0,
+    power: 0
   },
   WES: { 
     scode: '',

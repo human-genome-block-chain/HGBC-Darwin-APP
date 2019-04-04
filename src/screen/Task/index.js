@@ -138,7 +138,7 @@ class Task extends Component {
                 source={ TaskImg.Wgs }
                 title="基因组数据"
                 buttonText="+15~150算力"
-                status={ WGS.simpleCount > 0 ? 'success' : 'disabled' }
+                status={ simpleCount > 0 ? 'success' : 'disabled' }
                 triggerClick={ () => this.props.navigation.navigate('Wgs') }
               >
                 <Text style={ styles.instructions }>奖励 15~150算力</Text>

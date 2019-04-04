@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 import { AndroidWhiteBar, TaskSuccessButton, TextButton } from 'components/index'
 import { TaskImg } from 'images/index'
 
-class Success extends Component{
+export default class Success extends Component{
   linking () {
     Linking.openURL('https://h5.youzan.com/v2/showcase/homepage?alias=i58fd2xq')
   }
@@ -29,7 +29,7 @@ class Success extends Component{
             <Text style={ styles.success }>绑定成功</Text>
             <Text style={ styles.title }>唾液采集器编号</Text>
             <Text style={ styles.scode }>{ this.props.text }</Text>
-            <Text style={ styles.title }>已增加{ this.props.add_power }算力</Text>
+            <Text style={ styles.title }>已增加{ this.props.power }算力</Text>
           </View>
           <TextButton
             textStyle={ styles.conbter }
@@ -44,10 +44,6 @@ class Success extends Component{
     )
   }
 }
-
-export default connect(state => ({
-  add_power: state.home.add_power
-}))(Success)
 
 const styles = StyleSheet.create({
   container: {
