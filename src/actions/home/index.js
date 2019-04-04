@@ -15,11 +15,6 @@ export const setToken = token => ({
   token
 })
 
-export const setAddpower = addPower => ({
-	type: Types.SET_ADDPOWER,
-  addPower
-})
-
 export const deleteToken = token => ({
 	type: Types.DELETE_TOKEN,
   token
